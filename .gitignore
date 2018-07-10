@@ -85,8 +85,6 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
-
 
 ### VisualStudioCode ###
 .vscode/*
