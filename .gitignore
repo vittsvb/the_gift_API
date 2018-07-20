@@ -85,6 +85,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
+# .env
 
 ### VisualStudioCode ###
 .vscode/*
@@ -114,6 +115,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-.env
+# .env
 package-lock.json
 # End of https://www.gitignore.io/api/node,macos,windows,visualstudiocode
