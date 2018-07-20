@@ -6,8 +6,6 @@ let registerGivenPerson = function (userid, type, age, profession, sex, hobbie, 
     return new Promise(async function (resolve, reject) {
 
         try {
-
-            console.log('entrou');
             //Cria o novo presenteado
             var newGivenPerson = new givenPerson({
                 type: type,
@@ -21,16 +19,23 @@ let registerGivenPerson = function (userid, type, age, profession, sex, hobbie, 
 
             newGivenPerson = await newGivenPerson.save()
 
-            if (newGivenPerson) {
-                user.findByIdAndUpdate(userid, { $set: { givenPerson: newGivenPerson._id } })
-            }
+            let updatedUser = user.findOneAndUpdate({
+                _id: userid
+            }, {
+                $push: {
+                    givenPersons: newGivenPerson._id
+                }
+            }, {
+                fields: {
+                    password: 0,
+                    __v: 0
+                }
+            })
 
-            return resolve('Salvo com sucesso', true)
+            return resolve(updatedUser)
 
         } catch (err) {
-
             return reject('Erro ao registrar presenteado', err)
-
         }
     })
 
@@ -42,8 +47,7 @@ let deleteGivenPerson = function (givenPersonid) {
 
             return resolve(givenPerson.findByIdAndRemove(givenPersonid))
 
-        }
-        catch (err) {
+        } catch (err) {
             console.log(err);
             return reject('Erro ao deletar presenteado', err)
         }
@@ -56,8 +60,7 @@ let findallGivenPerson = function (givenPersonid) {
 
             return resolve(givenPerson.findByIdAndRemove(givenPersonid))
 
-        }
-        catch (err) {
+        } catch (err) {
             console.log(err);
             return reject('Erro ao deletar presenteado', err)
         }

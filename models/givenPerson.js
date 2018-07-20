@@ -1,13 +1,13 @@
 var mongoose = require('mongoose')
 
-var userSchema = new mongoose.Schema({
+var givenPersonSchema = new mongoose.Schema({
     type: String,
     age: Number,
     profession: String,
     sex: String,
-    hobbie: [String],
-    presentValue:Number,
-    occasion:String
+    hobbie: String,
+    presentValue: Number,
+    occasion: String
 })
 
-module.exports = mongoose.model(process.env.GIVENPERSON_SCHEMA, userSchema, process.env.GIVENPERSON_SCHEMA)
+module.exports = mongoose.model(process.env.GIVENPERSON_SCHEMA, givenPersonSchema, process.env.GIVENPERSON_SCHEMA)
