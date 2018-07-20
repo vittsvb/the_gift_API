@@ -1,34 +1,57 @@
 var user = require('../models/user')
 var givenPerson = require('../models/givenPerson')
 
-let registerGivenPerson = function (userid, type, age, profession, sex, hobbie, value, occasion) {
+let registerGivenPerson = function (userid, type, age, profession, sex, hobbie, presentValue, occasion) {
 
     return new Promise(async function (resolve, reject) {
+        
         try {
            
-            
+            console.log('entrou');
             //Cria o novo presenteado
             var newGivenPerson = new givenPerson({
-                type = type,
-                age = age,
-                profession = profession,
-                sex = sex,
-                hobbie = hobbie,
-                value = value,
-                occasion = occasion
+                type : type,
+                age : age,
+                profession : profession,
+                sex : sex,
+                hobbie : hobbie,
+                presentValue : presentValue,
+                occasion : occasion
             })
+            
+            newGivenPerson = await newGivenPerson.save()
 
-            var insGivenPerson = await newGivenPerson.save()
-
-            if (insGivenPerson){
-                user.findByIdAndUpdate(userid,{$set: { givenPerson: insGivenPerson._id }})
+            if (newGivenPerson){
+                user.findByIdAndUpdate(userid,{$set: { givenPerson: newGivenPerson._id }})
             }
             
             return resolve('Salvo com sucesso',true)
 
         } catch (err) {
+            
             return reject('Erro ao registrar presenteado', err)
+            
         }
     })
 
+}
+
+let deleteGivenPerson = function (givenPersonid){
+
+    try{
+
+        return resolve(givenPerson.findByIdAndRemove(givenPersonid))
+
+    }
+    catch(err){
+        return reject('Erro ao deletar presenteado', err)
+    }
+
+
+}
+
+
+module.exports = {
+    registerGivenPerson: registerGivenPerson,
+    deleteGivenPerson: deleteGivenPerson
 }

@@ -6,8 +6,8 @@ var userSchema = new mongoose.Schema({
     profession: String,
     sex: String,
     hobbie: [String],
-    value:Number,
+    presentValue:Number,
     occasion:String
 })
 
-module.exports = mongoose.model(process.env.USER_SCHEMA, userSchema, process.env.USER_SCHEMA)
+module.exports = mongoose.model(process.env.GIVENPERSON_SCHEMA, userSchema, process.env.GIVENPERSON_SCHEMA)
