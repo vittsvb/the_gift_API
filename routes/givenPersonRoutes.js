@@ -35,4 +35,19 @@ router.post('/deleteGivenPerson', (async (req, res, next) => {
     }
 }))
 
+router.post('/findallgivenpersons', (async (req, res, next) => {
+
+    try {
+
+        let result = await controller.findallGivenPersonByUser(req.body.userid)
+
+        res.json(result)
+
+    } catch (err) {
+        return next({
+            message: err
+        })
+    }
+}))
+
 module.exports = router

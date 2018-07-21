@@ -34,6 +34,10 @@ app.use('/chat', chatRoutes)
 const givenPersonRoutes = require('./routes/givenPersonRoutes')
 app.use('/givenperson', givenPersonRoutes)
 
+const likesRoutes = require('./routes/likesRoutes')
+app.use('/likes', likesRoutes)
+
+
 //Middleware de erro, todo erro deve ser lançado aqui
 app.use((error, req, res, next) => {
     return res.status(500).json(error)

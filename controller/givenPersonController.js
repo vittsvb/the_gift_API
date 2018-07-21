@@ -48,21 +48,25 @@ let deleteGivenPerson = function (givenPersonid) {
             return resolve(givenPerson.findByIdAndRemove(givenPersonid))
 
         } catch (err) {
-            console.log(err);
+            
             return reject('Erro ao deletar presenteado', err)
         }
     })
 
 }
-let findallGivenPerson = function (givenPersonid) {
+let findallGivenPersonByUser = function (userid) {
     return new Promise(async function (resolve, reject) {
         try {
+            
+            let newUser =  await user.findById(userid)
+            let givenPersons = await givenPerson.find({ _id: {$in :[newUser.givenPersons]}})
+            
 
-            return resolve(givenPerson.findByIdAndRemove(givenPersonid))
+            return resolve(givenPersons)
 
         } catch (err) {
-            console.log(err);
-            return reject('Erro ao deletar presenteado', err)
+            
+            return reject('Erro ao selecionar presenteados', err)
         }
     })
 
@@ -72,5 +76,6 @@ let findallGivenPerson = function (givenPersonid) {
 
 module.exports = {
     registerGivenPerson: registerGivenPerson,
-    deleteGivenPerson: deleteGivenPerson
+    deleteGivenPerson: deleteGivenPerson,
+    findallGivenPersonByUser:findallGivenPersonByUser
 }
