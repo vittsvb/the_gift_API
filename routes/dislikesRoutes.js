@@ -44,5 +44,23 @@ router.post('/removedeslike', (async (req, res, next) => {
 
 }))
 
+router.post('/findalldeslikesbyuser', (async (req, res, next) => {
+
+    try {
+
+        let result = await controller.findAllDeslikesByUser(req.body.userid)
+
+        res.json(result)
+
+
+    } catch (err) {
+        return next({
+            message: err
+        })
+    }
+
+
+}))
+
 
 module.exports = router

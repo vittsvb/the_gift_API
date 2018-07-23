@@ -59,8 +59,29 @@ let removeLike = function(userid, prodId){
 
 }
 
+let findAllLikesbyUser = function(userid){
+
+    return new Promise(async function(resolve,reject){
+
+        try{
+            
+            user = await user.findById(userid)
+            
+            resolve(user.likes)
+
+
+        } catch(err){
+            reject("Erro ao buscar Favoritos",err)
+        }
+
+
+    })
+
+}
+
 
 module.exports = {
     addLike : addLike,
-    removeLike : removeLike
+    removeLike : removeLike,
+    findAllLikesbyUser : findAllLikesbyUser
 }

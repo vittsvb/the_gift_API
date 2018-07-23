@@ -44,5 +44,23 @@ router.post('/removelike', (async (req, res, next) => {
 
 }))
 
+router.post('/findalllikesbyuser', (async (req, res, next) => {
+
+    try {
+
+        let result = await controller.findAllLikesbyUser(req.body.userid)
+
+        res.json(result)
+
+
+    } catch (err) {
+        return next({
+            message: err
+        })
+    }
+
+
+}))
+
 
 module.exports = router

@@ -59,8 +59,27 @@ let removeDeslike = function(userid, prodId){
 
 }
 
+let findAllDeslikesByUser = function(userid){
+
+    return new Promise(async function(resolve,reject){
+
+        try{
+            let newUser = await user.findById(userid)
+            resolve(newUser.deslikes)
+
+
+        } catch(err){
+            reject("Erro ao buscar não Favorito",err)
+        }
+
+
+    })
+
+}
+
 
 module.exports = {
     addDeslike : addDeslike,
-    removeDeslike : removeDeslike
+    removeDeslike : removeDeslike,
+    findAllDeslikesByUser : findAllDeslikesByUser
 }
