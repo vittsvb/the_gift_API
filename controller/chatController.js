@@ -30,7 +30,7 @@ let watsonTalk = function (text, context) {
                 }
             })
         } catch (err) {
-            reject(new Error(err))
+            reject('Erro no watson assistant: ' + err)
         }
     })
 }

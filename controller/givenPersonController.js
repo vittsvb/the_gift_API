@@ -1,13 +1,11 @@
-var user = require('../models/user')
-var givenPerson = require('../models/givenPerson')
+var User = require('../models/user')
+var GivenPerson = require('../models/givenPerson')
 
 let registerGivenPerson = function (userid, type, age, profession, sex, hobbie, presentValue, occasion) {
-
     return new Promise(async function (resolve, reject) {
-
         try {
             //Cria o novo presenteado
-            var newGivenPerson = new givenPerson({
+            var newGivenPerson = new GivenPerson({
                 type: type,
                 age: age,
                 profession: profession,
@@ -19,13 +17,12 @@ let registerGivenPerson = function (userid, type, age, profession, sex, hobbie, 
 
             newGivenPerson = await newGivenPerson.save()
 
-            let updatedUser = user.findOneAndUpdate({
-                _id: userid
-            }, {
+            let updatedUser = User.findByIdAndUpdate(userid, {
                 $push: {
                     givenPersons: newGivenPerson._id
                 }
             }, {
+                new: true,
                 fields: {
                     password: 0,
                     __v: 0
@@ -35,41 +32,40 @@ let registerGivenPerson = function (userid, type, age, profession, sex, hobbie, 
             return resolve(updatedUser)
 
         } catch (err) {
-            return reject('Erro ao registrar presenteado', err)
+            return reject('Erro ao registrar presenteado: ' + err)
         }
     })
 
 }
 
-let deleteGivenPerson = function (givenPersonid) {
+let deleteGivenPerson = function (givenPersonId) {
     return new Promise(async function (resolve, reject) {
         try {
-
-            return resolve(givenPerson.findByIdAndRemove(givenPersonid))
-
+            let givenPerson = GivenPerson.findByIdAndDelete(givenPersonId)            
+            return resolve(givenPerson)
         } catch (err) {
-            
-            return reject('Erro ao deletar presenteado', err)
+            return reject('Erro ao deletar presenteado: ' + err)
         }
     })
-
 }
+
 let findallGivenPersonByUser = function (userid) {
     return new Promise(async function (resolve, reject) {
         try {
-            
-            let newUser =  await user.findById(userid)
-            let givenPersons = await givenPerson.find({ _id: {$in :[newUser.givenPersons]}})
-            
 
+            let newUser = await User.findById(userid)
+            let givenPersons = await GivenPerson.find({
+                _id: {
+                    $in: newUser.givenPersons
+                }
+            })
+            
             return resolve(givenPersons)
 
         } catch (err) {
-            
-            return reject('Erro ao selecionar presenteados', err)
+            return reject('Erro ao selecionar presenteados: ' + err)
         }
     })
-
 }
 
 
@@ -77,5 +73,5 @@ let findallGivenPersonByUser = function (userid) {
 module.exports = {
     registerGivenPerson: registerGivenPerson,
     deleteGivenPerson: deleteGivenPerson,
-    findallGivenPersonByUser:findallGivenPersonByUser
+    findallGivenPersonByUser: findallGivenPersonByUser
 }

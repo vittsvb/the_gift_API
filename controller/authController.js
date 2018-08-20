@@ -19,7 +19,7 @@ let registerUser = function (name, email, password) {
             return resolve(newUser.save())
 
         } catch (err) {
-            return reject('Erro ao registrar usuário', err)
+            return reject('Erro ao registrar usuário: ' + err)
         }
     })
 }
@@ -38,7 +38,7 @@ let loginUser = function (email, password) {
             
             resolve(['Senha correta', true])
         } catch (err) {
-            reject('Erro no login do usuário', err)
+            reject('Erro no login do usuário: ' + err)
         }
     })
 }

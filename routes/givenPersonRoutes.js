@@ -18,16 +18,15 @@ router.post('/register', (async (req, res, next) => {
     }
 }))
 
-router.post('/deleteGivenPerson', (async (req, res, next) => {
-
+router.post('/delete', (async (req, res, next) => {
     try {
-
         let result = await controller.deleteGivenPerson(req.body.givenPersonId)
-
+        
         res.json({
-            message: 'Presenteado deletado com sucesso'
+            message: 'Presenteado deletado com sucesso',
+            data: result
         })
-
+        
     } catch (err) {
         return next({
             message: err
@@ -35,14 +34,15 @@ router.post('/deleteGivenPerson', (async (req, res, next) => {
     }
 }))
 
-router.post('/findallgivenpersons', (async (req, res, next) => {
-
+router.post('/findAll', (async (req, res, next) => {
     try {
-
         let result = await controller.findallGivenPersonByUser(req.body.userid)
-
-        res.json(result)
-
+        
+        res.json({
+            message: 'Presenteado recebidos com sucesso',
+            data: result
+        })
+        
     } catch (err) {
         return next({
             message: err

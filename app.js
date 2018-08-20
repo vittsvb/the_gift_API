@@ -38,7 +38,7 @@ const likesRoutes = require('./routes/likesRoutes')
 app.use('/likes', likesRoutes)
 
 const deslikeRoutes = require('./routes/dislikesRoutes')
-app.use('/deslikes', deslikeRoutes)
+app.use('/dislikes', deslikeRoutes)
 
 //Middleware de erro, todo erro deve ser lançado aqui
 app.use((error, req, res, next) => {

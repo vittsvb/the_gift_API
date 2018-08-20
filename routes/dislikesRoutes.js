@@ -2,17 +2,14 @@ const controller = require("../controller/dislikesController")
 
 let router = require('express').Router()
 
-router.post('/adddeslike', (async (req, res, next) => {
+router.post('/addDislike', (async (req, res, next) => {
 
     try {
-
-        let result = controller.addDeslike(req.body.userid, req.body.prodid)
-
+        let result = await controller.addDislike(req.body.userid, req.body.prodid)
         res.json({
-            message: 'Favorito cadastrado com sucesso'
-        }
-        )
-
+            message: 'Rejeitado cadastrado com sucesso',
+            data: result
+        })
 
     } catch (err) {
         return next({
@@ -23,17 +20,14 @@ router.post('/adddeslike', (async (req, res, next) => {
 
 }))
 
-router.post('/removedeslike', (async (req, res, next) => {
+router.post('/removeDislike', (async (req, res, next) => {
 
     try {
-
-        let result = controller.removeDeslike(req.body.userid, req.body.prodid)
-
+        let result = await controller.removeDislike(req.body.userid, req.body.prodid)
         res.json({
-            message: 'Favorito removido com sucesso'
-        }
-        )
-
+            message: 'Rejeitado removido com sucesso',
+            data: result
+        })
 
     } catch (err) {
         return next({
@@ -44,14 +38,14 @@ router.post('/removedeslike', (async (req, res, next) => {
 
 }))
 
-router.post('/findalldeslikesbyuser', (async (req, res, next) => {
+router.post('/findall', (async (req, res, next) => {
 
     try {
-
-        let result = await controller.findAllDeslikesByUser(req.body.userid)
-
-        res.json(result)
-
+        let result = await controller.findAllDislikesByUser(req.body.userid)
+        res.json({
+            message: 'Rejeitado listado com sucesso',
+            data: result
+        })
 
     } catch (err) {
         return next({

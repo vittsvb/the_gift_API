@@ -6,7 +6,7 @@ var userSchema = new mongoose.Schema({
     password: String,
     likes: [String],
     deslikes: [String],
-    givenPersons: [{type: mongoose.Schema.ObjectId}]
+    givenPersons: [String]
 })
 
 module.exports = mongoose.model(process.env.USER_SCHEMA, userSchema, process.env.USER_SCHEMA)

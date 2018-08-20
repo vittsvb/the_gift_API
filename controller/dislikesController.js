@@ -1,85 +1,64 @@
-var user = require("../models/user")
+var User = require('../models/user')
 
-
-let addDeslike = function(userid, prodId){
-
-    return new Promise(async function(resolve,reject){
-
-        try{
-
-            resolve(user.findOneAndUpdate({
+let addDislike = function (userid, prodid) {
+    return new Promise(async function (resolve, reject) {
+        try {
+            let newUser = User.findOneAndUpdate({
                 _id: userid
             }, {
-                $push: {
-                    deslikes: prodId
+                $addToSet: {
+                    deslikes: prodid
                 }
             }, {
+                new: true,
                 fields: {
                     password: 0,
                     __v: 0
                 }
-            }))
-
-
-        } catch(err){
-            reject("Erro ao adicionar não favorito",err)
+            })
+            
+            return resolve(newUser)
+        } catch (err) {
+            reject('Erro ao adicionar rejeitado: ' + err)
         }
-
-
     })
-
 }
 
-let removeDeslike = function(userid, prodId){
-
-    return new Promise(async function(resolve,reject){
-
-        try{
-
-            resolve(user.findOneAndUpdate({
+let removeDislike = function (userid, prodid) {
+    return new Promise(async function (resolve, reject) {
+        try {
+            resolve(User.findOneAndUpdate({
                 _id: userid
             }, {
                 $pull: {
-                    deslikes: prodId
+                    deslikes: prodid
                 }
             }, {
+                new: true,
                 fields: {
                     password: 0,
                     __v: 0
                 }
             }))
-
-
-        } catch(err){
-            reject("Erro ao remover não Favorito",err)
+        } catch (err) {
+            reject('Erro ao remover rejeitado: ' + err)
         }
-
-
     })
-
 }
 
-let findAllDeslikesByUser = function(userid){
-
-    return new Promise(async function(resolve,reject){
-
-        try{
-            let newUser = await user.findById(userid)
+let findAllDislikesByUser = function (userid) {
+    return new Promise(async function (resolve, reject) {
+        try {
+            let newUser = await User.findById(userid)
             resolve(newUser.deslikes)
-
-
-        } catch(err){
-            reject("Erro ao buscar não Favorito",err)
+        } catch (err) {
+            reject('Erro ao buscar não Favorito: ' + err)
         }
-
-
     })
-
 }
-
 
 module.exports = {
-    addDeslike : addDeslike,
-    removeDeslike : removeDeslike,
-    findAllDeslikesByUser : findAllDeslikesByUser
+    addDislike: addDislike,
+    removeDislike: removeDislike,
+    findAllDislikesByUser: findAllDislikesByUser
 }

@@ -5,14 +5,11 @@ let router = require('express').Router()
 router.post('/addlike', (async (req, res, next) => {
 
     try {
-
-        let result = controller.addLike(req.body.userid, req.body.prodid)
-
+        let result = await controller.addLike(req.body.userid, req.body.prodid)
         res.json({
-            message: 'Favorito cadastrado com sucesso'
-        }
-        )
-
+            message: 'Favorito cadastrado com sucesso',
+            data: result
+        })
 
     } catch (err) {
         return next({
@@ -26,14 +23,11 @@ router.post('/addlike', (async (req, res, next) => {
 router.post('/removelike', (async (req, res, next) => {
 
     try {
-
-        let result = controller.removeLike(req.body.userid, req.body.prodid)
-
+        let result = await controller.removeLike(req.body.userid, req.body.prodid)
         res.json({
-            message: 'Favorito removido com sucesso'
-        }
-        )
-
+            message: 'Favorito removido com sucesso',
+            data: result
+        })
 
     } catch (err) {
         return next({
@@ -44,14 +38,14 @@ router.post('/removelike', (async (req, res, next) => {
 
 }))
 
-router.post('/findalllikesbyuser', (async (req, res, next) => {
+router.post('/findAll', (async (req, res, next) => {
 
     try {
-
         let result = await controller.findAllLikesbyUser(req.body.userid)
-
-        res.json(result)
-
+        res.json({
+            message: 'Favoritos recebidos com sucesso',
+            data: result
+        })
 
     } catch (err) {
         return next({
