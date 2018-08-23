@@ -1,0 +1,500 @@
+[
+  {
+    "nome": "Banheiro American Pets Cathy com Filtro Coberto",
+    "valor": 104.31,
+    "idade": {
+      "min": 15,
+      "max": 100
+    },
+    "sexo": [
+      "M",
+      "F"
+    ],
+    "profissao_hobbie": "animais",
+    "presenteado": [
+      "amiga",
+      "amigo",
+      "chefe",
+      "esposa",
+      "filha",
+      "filho",
+      "irmã",
+      "irmão",
+      "marido",
+      "mim",
+      "mãe",
+      "namorado",
+      "namorada",
+      "pai",
+      "sogra",
+      "sogro",
+      "tia",
+      "tio",
+      "vó",
+      "vô",
+      "outro"
+    ],
+    "ocasiao": [
+      "aniversário",
+      "dia das crianças",
+      "dia das mães",
+      "dia dos namorados",
+      "dia dos pais",
+      "natal",
+      "outro"
+    ],
+    "descricao": "O Banheiro American Pets Cathy Filter Coberto, é uma excelente bandeja para gatos! Proporciona ao seu pet toda a limpeza e praticidade que ele merece para suas necessidades diárias. Todo fechado, ele diminui os maus odores e garante limpeza prática. Acompanha filtro de carvão ativado, para neutralizar os odores e auxiliar na ventilação. *Imagem meramente ilustrativa, tons variados.",
+    "imagens": [
+      "https://www.petlove.com.br/images/products/150990/product/8003507975453_1.jpg",
+      "https://www.petlove.com.br/images/products/150994/product/8003507975453.jpg",
+      "https://www.petlove.com.br/images/products/150991/product/8003507975453_2.jpg"
+    ]
+  },
+  {
+    "nome": "Barraca Hello Pet Cinza com Rosa Cães e Gatos - Tam. Único",
+    "valor": 199.9,
+    "idade": {
+      "min": 1,
+      "max": 100
+    },
+    "sexo": [
+      "M",
+      "F"
+    ],
+    "profissao_hobbie": "animais",
+    "presenteado": [
+      "amiga",
+      "amigo",
+      "chefe",
+      "esposa",
+      "filha",
+      "filho",
+      "irmã",
+      "irmão",
+      "marido",
+      "mim",
+      "mãe",
+      "namorado",
+      "namorada",
+      "pai",
+      "sogra",
+      "sogro",
+      "tia",
+      "tio",
+      "vó",
+      "vô",
+      "outro"
+    ],
+    "ocasiao": [
+      "aniversário",
+      "dia das crianças",
+      "dia das mães",
+      "dia dos namorados",
+      "dia dos pais",
+      "natal",
+      "outro"
+    ],
+    "descricao": "A Barraca Hello Pet Cinza com Rosa Cães e Gatos , é a novidade que faltava para o seu pet, inteiramente desmontável, alegre, moderna, aconchegante. Indicada para cães e gatos de pequeno porte.",
+    "imagens": [
+      "https://www.petlove.com.br/images/products/189167/product/Barraca_Hello_Pet_Cinza_com_Rosa_Cães_e_Gatos_-_Tam._Único_Embalagem_1569112.jpg"
+    ]
+  },
+  {
+    "nome": "Graveto Buddy Nylon",
+    "valor": 35.6,
+    "idade": {
+      "min": 1,
+      "max": 100
+    },
+    "sexo": [
+      "M",
+      "F"
+    ],
+    "profissao_hobbie": "animais",
+    "presenteado": [
+      "amiga",
+      "amigo",
+      "chefe",
+      "esposa",
+      "filha",
+      "filho",
+      "irmã",
+      "irmão",
+      "marido",
+      "mim",
+      "mãe",
+      "namorado",
+      "namorada",
+      "pai",
+      "sogra",
+      "sogro",
+      "tia",
+      "tio",
+      "vó",
+      "vô",
+      "outro"
+    ],
+    "ocasiao": [
+      "aniversário",
+      "dia das crianças",
+      "dia das mães",
+      "dia dos namorados",
+      "dia dos pais",
+      "natal",
+      "outro"
+    ],
+    "descricao": "Com alto nível de resistência e durabilidade, esse brinquedo para cachorro é resistente e durável. Fabricado com composto de Nylon atóxico, indicado para cães de todos os portes. Esse modelo serve para saciar a vontade natural que cães tem de roer e destruir objetos.",
+    "imagens": [
+      "http://www.buddytoys.com.br/media/catalog/product/cache/1/image/500x500/9df78eab33525d08d6e5fb8d27136e95/g/r/graveto_buddy_nylon_embalagem.jpg",
+      "http://www.buddytoys.com.br/media/catalog/product/cache/1/image/500x500/9df78eab33525d08d6e5fb8d27136e95/b/u/buddytoys-1.jpg"
+    ]
+  },
+  {
+    "nome": "Urso James Pelúcia - Buba Toys",
+    "valor": 189.91,
+    "idade": {
+      "min": 1,
+      "max": 100
+    },
+    "sexo": [
+      "F"
+    ],
+    "profissao_hobbie": "animais",
+    "presenteado": [
+      "amiga",
+      "amigo",
+      "chefe",
+      "esposa",
+      "filha",
+      "filho",
+      "irmã",
+      "irmão",
+      "marido",
+      "mim",
+      "mãe",
+      "namorado",
+      "namorada",
+      "pai",
+      "sogra",
+      "sogro",
+      "tia",
+      "tio",
+      "vó",
+      "vô",
+      "outro"
+    ],
+    "ocasiao": [
+      "aniversário",
+      "dia das crianças",
+      "dia das mães",
+      "dia dos namorados",
+      "dia dos pais",
+      "natal",
+      "outro"
+    ],
+    "descricao": "Os ursos de pelúcia da Buba são super charmosos e macios. Os produtos são desenvolvidos com muito cuidado e carinho para que se tornem um grande companheiro das crianças e uma excelente opção para presentear! A Buba fabrica pelúcias antialérgicas, super macias e com design diferenciado, sempre se preocupando em manter um alto padrão de qualidade.",
+    "imagens": [
+      "https://a-static.mlcdn.com.br/618x463/urso-james-pelucia-buba-toys/magazineluiza/216720200/510466cff4297e042a47810f4b9f8b95.jpg"
+    ]
+  },
+  {
+    "nome": "Petkit Smart Digital Alimentação para animais Bowl No-derramamento Não-flip Antibacteriana Waterproof 450ML Dog Cat Feeder Bowl",
+    "valor": 163.21,
+    "idade": {
+      "min": 15,
+      "max": 100
+    },
+    "sexo": [
+      "M",
+      "F"
+    ],
+    "profissao_hobbie": "animais",
+    "presenteado": [
+      "amiga",
+      "amigo",
+      "chefe",
+      "esposa",
+      "filha",
+      "filho",
+      "irmã",
+      "irmão",
+      "marido",
+      "mim",
+      "mãe",
+      "namorado",
+      "namorada",
+      "pai",
+      "sogra",
+      "sogro",
+      "tia",
+      "tio",
+      "vó",
+      "vô",
+      "outro"
+    ],
+    "ocasiao": [
+      "aniversário",
+      "dia das crianças",
+      "dia das mães",
+      "dia dos namorados",
+      "dia dos pais",
+      "natal",
+      "outro"
+    ],
+    "descricao": "Design inovador com padrões únicos; Balança integrada com sensibilidade de 1 grama; Pesagem de até 2 kg; Biocote antibacteriano BioCleanAct™, prevenindo possíveis diarreias por ingestão bacteriana; Botão único para ligar/desligar/tarar; Resistente à água e lavável; 2 anos de vida útil das pilhas (utilização normal de 15 minutos/dia); Aplicação móvel com dicas de nutrição. A Petkit Smart Bowl contém no interior da embalagem as pilhas e a chave para abrir o compartimento.",
+    "imagens": [
+      "http://petracoes.pt/image/cache/catalog/Oxbow/DAP2125-650x650.jpg",
+      "http://petracoes.pt/image/cache/catalog/Oxbow/transferir%20(1)-650x650.jpg"
+    ]
+  },
+  {
+    "nome": "Brinquedo Pawise Arranhador Pluto",
+    "valor": 109.9,
+    "idade": {
+      "min": 15,
+      "max": 100
+    },
+    "sexo": [
+      "M",
+      "F"
+    ],
+    "profissao_hobbie": "animais",
+    "presenteado": [
+      "amiga",
+      "amigo",
+      "chefe",
+      "esposa",
+      "filha",
+      "filho",
+      "irmã",
+      "irmão",
+      "marido",
+      "mim",
+      "mãe",
+      "namorado",
+      "namorada",
+      "pai",
+      "sogra",
+      "sogro",
+      "tia",
+      "tio",
+      "vó",
+      "vô",
+      "outro"
+    ],
+    "ocasiao": [
+      "aniversário",
+      "dia das crianças",
+      "dia das mães",
+      "dia dos namorados",
+      "dia dos pais",
+      "natal",
+      "outro"
+    ],
+    "descricao": "O Brinquedo Pawise Arranhador Pluto tem qualidade internacional e design diferenciado. Arranhadores para gatos são necessários para que o gato elimine as unhas velhas, renovando suas garras, além de promover o relaxamento e eliminar o estresse.",
+    "imagens": [
+      "https://www.petlove.com.br/images/products/176603/product/8886467586835.jpg",
+      "https://www.petlove.com.br/images/products/176604/product/8886467586835_2.jpg"
+    ]
+  },
+  {
+    "nome": "Roupas para Cachorro Casaco Moletom Azul Marinho - Vicky e Co",
+    "valor": 64.9,
+    "idade": {
+      "min": 15,
+      "max": 100
+    },
+    "sexo": [
+      "M",
+      "F"
+    ],
+    "profissao_hobbie": "animais",
+    "presenteado": [
+      "amiga",
+      "amigo",
+      "chefe",
+      "esposa",
+      "filha",
+      "filho",
+      "irmã",
+      "irmão",
+      "marido",
+      "mim",
+      "mãe",
+      "namorado",
+      "namorada",
+      "pai",
+      "sogra",
+      "sogro",
+      "tia",
+      "tio",
+      "vó",
+      "vô",
+      "outro"
+    ],
+    "ocasiao": [
+      "aniversário",
+      "dia das crianças",
+      "dia das mães",
+      "dia dos namorados",
+      "dia dos pais",
+      "natal",
+      "outro"
+    ],
+    "descricao": "Casaco super confortável feito em moletom com capuz. Apresenta estampa silk que deixa a roupinha ainda mais estilosa. Contém abertura para a passagem da guia, permitindo que você utilize a roupinha por cima do peitoral durante os passeios :D",
+    "imagens": [
+      "https://www.petelegante.com.br/media/catalog/product/cache/1/thumbnail/9df78eab33525d08d6e5fb8d27136e95/r/o/roupa_para_cachorro_e_gatos_casaco_moletom_azul_e_mescla.jpg",
+      "https://www.petelegante.com.br/media/catalog/product/cache/1/thumbnail/9df78eab33525d08d6e5fb8d27136e95/r/o/roupa_para_cachorro_e_gatos_casaco_moletom_azul_e_mescla2.jpg"
+    ]
+  },
+  {
+    "nome": "Coleira Peitoral Tubline Pet Walk Azul - Tam. P",
+    "valor": 49.9,
+    "idade": {
+      "min": 15,
+      "max": 100
+    },
+    "sexo": [
+      "M",
+      "F"
+    ],
+    "profissao_hobbie": "animais",
+    "presenteado": [
+      "amiga",
+      "amigo",
+      "chefe",
+      "esposa",
+      "filha",
+      "filho",
+      "irmã",
+      "irmão",
+      "marido",
+      "mim",
+      "mãe",
+      "namorado",
+      "namorada",
+      "pai",
+      "sogra",
+      "sogro",
+      "tia",
+      "tio",
+      "vó",
+      "vô",
+      "outro"
+    ],
+    "ocasiao": [
+      "aniversário",
+      "dia das crianças",
+      "dia das mães",
+      "dia dos namorados",
+      "dia dos pais",
+      "natal",
+      "outro"
+    ],
+    "descricao": "A Coleira Peitoral Tubline Pet Walk, é muito resisente e não possui nenhum tipo de rebarba que possa machucar o seu pet",
+    "imagens": [
+      "https://www.petlove.com.br/images/products/172506/product/Coleira-Peitoral-Tubline-Pet-Walk---Azul2.jpg",
+      "https://www.petlove.com.br/images/products/172508/product/Coleira-Peitoral-Tubline-Pet-Walk---Azul.jpg",
+      "https://www.petlove.com.br/images/products/172507/product/Coleira-Peitoral-Tubline-Pet-Walk---Azul3.jpg"
+    ]
+  },
+  {
+    "nome": "Kit Ferplast com Escova, Pente e Rasqueadeira Gro 5998 Conjunto Grooming para Roedores",
+    "valor": 89.9,
+    "idade": {
+      "min": 15,
+      "max": 100
+    },
+    "sexo": [
+      "M",
+      "F"
+    ],
+    "profissao_hobbie": "animais",
+    "presenteado": [
+      "amiga",
+      "amigo",
+      "chefe",
+      "esposa",
+      "filha",
+      "filho",
+      "irmã",
+      "irmão",
+      "marido",
+      "mim",
+      "mãe",
+      "namorado",
+      "namorada",
+      "pai",
+      "sogra",
+      "sogro",
+      "tia",
+      "tio",
+      "vó",
+      "vô",
+      "outro"
+    ],
+    "ocasiao": [
+      "aniversário",
+      "dia das crianças",
+      "dia das mães",
+      "dia dos namorados",
+      "dia dos pais",
+      "natal",
+      "outro"
+    ],
+    "descricao": "O Kit Ferplast com Escova, Pente e Rasqueadeira Gro 5998 Conjunto Grooming, você vai encontrar todos os instrumentos necessários para o cuidado da pelagem do seu pequeno animal! GRO 5998 é um conjunto completo: dentro você encontrará uma escova para coelhos, um pente duplo e uma rasqueadeira para remover pelos mortos.",
+    "imagens": [
+      "https://www.petlove.com.br/images/products/174553/product/Kit-Ferplast-com-Escova_-Pente-e-Rasqueadeira-Gro-5998-Conjunto-Grooming-para-Roedores.jpg"
+    ]
+  },
+  {
+    "nome": "Quadro Decorativo Dog Casaco",
+    "valor": 29.99,
+    "idade": {
+      "min": 15,
+      "max": 100
+    },
+    "sexo": [
+      "M",
+      "F"
+    ],
+    "profissao_hobbie": "animais",
+    "presenteado": [
+      "amiga",
+      "amigo",
+      "chefe",
+      "esposa",
+      "filha",
+      "filho",
+      "irmã",
+      "irmão",
+      "marido",
+      "mim",
+      "mãe",
+      "namorado",
+      "namorada",
+      "pai",
+      "sogra",
+      "sogro",
+      "tia",
+      "tio",
+      "vó",
+      "vô",
+      "outro"
+    ],
+    "ocasiao": [
+      "aniversário",
+      "dia das crianças",
+      "dia das mães",
+      "dia dos namorados",
+      "dia dos pais",
+      "natal",
+      "outro"
+    ],
+    "descricao": "Os Quadros Arte Maníacos decoram de forma criativa, levando muita personalidade e identificação a cada espaço em que eles estiverem. As artes foram criadas e produzidas por um refinado grupo de artistas e ilustradores; são únicas e exclusivas.",
+    "imagens": [
+      "https://images-submarino.b2w.io/produtos/01/00/sku/37999/0/37999031_1GG.jpg",
+      "https://images-submarino.b2w.io/produtos/01/00/sku/37999/0/37999031_2GG.jpg"
+    ]
+  }
+]

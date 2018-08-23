@@ -5,8 +5,8 @@ var productSchema = new mongoose.Schema({
     valor: Number,
     idade: Object,
     sexo: [String],
-    profis_hobbie: String,
-    pessoa: [String],
+    profissao_hobbie: String,
+    presenteado: [String],
     ocasiao: [String],
     descricao: String,
     imagens: [String]

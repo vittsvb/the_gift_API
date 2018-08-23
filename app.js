@@ -40,6 +40,9 @@ app.use('/likes', likesRoutes)
 const deslikeRoutes = require('./routes/dislikesRoutes')
 app.use('/dislikes', deslikeRoutes)
 
+const productRoutes = require('./routes/productRoutes')
+app.use('/product', productRoutes)
+
 //Middleware de erro, todo erro deve ser lançado aqui
 app.use((error, req, res, next) => {
     return res.status(500).json(error)

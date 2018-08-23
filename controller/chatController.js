@@ -28,24 +28,26 @@ let watsonTalk = function (text, context) {
                 if (err) {
                     reject(new Error(err))
                 } else {
-                    if(response.context.presenteado && response.context.caracteristicas.indexOf(response.context.presenteado) === -1) response.context.caracteristicas.push(response.context.presenteado)
-                    
-                    if(response.context.idade && response.context.caracteristicas.indexOf(response.context.idade) === -1) response.context.caracteristicas.push(response.context.idade)
-                    
-                    if(response.context.profissao && response.context.caracteristicas.indexOf(response.context.profissao) === -1) response.context.caracteristicas.push(response.context.profissao)
-                    
-                    if(response.context.hobbie && response.context.caracteristicas.indexOf(response.context.hobbie) === -1) response.context.caracteristicas.push(response.context.hobbie)
-                    
-                    if(response.context.valor && response.context.caracteristicas.indexOf(response.context.valor) === -1) response.context.caracteristicas.push(response.context.valor)
-                    
-                    if(response.context.ocasiao && response.context.caracteristicas.indexOf(response.context.ocasiao) === -1) response.context.caracteristicas.push(response.context.ocasiao)
-                    
-                    if(response.context.caracteristicas.length >= 1) {
-                        console.log("RECOMENDACAO");
-                        let products = await productsController.recomendProduct(response.context.caracteristicas)
+                    //TODO: Fazer condição para o "GENERO"
+                    //if(response.context.presenteado && response.context.caracteristicas.indexOf(response.context.presenteado) === -1) response.context.caracteristicas.push(response.context.presenteado)
+
+                    if (response.context.presenteado && !response.context.caracteristicas.presenteado) response.context.caracteristicas.presenteado = response.context.presenteado
+
+                    if (response.context.idade && !response.context.caracteristicas.idade) response.context.caracteristicas.idade = response.context.idade
+
+                    if (response.context.profissao && !response.context.caracteristicas.profissao) response.context.caracteristicas.profissao = response.context.profissao
+
+                    if (response.context.hobbie && !response.context.caracteristicas.hobbie) response.context.caracteristicas.hobbie = response.context.hobbie
+
+                    if (response.context.valor && !response.context.caracteristicas.valor) response.context.caracteristicas.valor = response.context.valor
+
+                    if (response.context.ocasiao && !response.context.caracteristicas.ocasiao) response.context.caracteristicas.ocasiao = response.context.ocasiao
+
+                    if (Object.keys(response.context.caracteristicas).length >= 1) {
+                        let products = await productsController.recommendProduct(response.context.caracteristicas)
                         response.products = products
                     }
-                    
+
                     resolve(response)
                 }
             })
