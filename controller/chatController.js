@@ -28,8 +28,10 @@ let watsonTalk = function (text, context) {
                 if (err) {
                     reject(new Error(err))
                 } else {
-                    //TODO: Fazer condição para o "GENERO"
-                    //if(response.context.presenteado && response.context.caracteristicas.indexOf(response.context.presenteado) === -1) response.context.caracteristicas.push(response.context.presenteado)
+                    if (response.context.sexo && !response.context.caracteristicas.sexo) {
+                        if(response.context.sexo == 'masculino') response.context.caracteristicas.sexo = 'M'
+                        if(response.context.sexo == 'feminino') response.context.caracteristicas.sexo = 'F'
+                    }
 
                     if (response.context.presenteado && !response.context.caracteristicas.presenteado) response.context.caracteristicas.presenteado = response.context.presenteado
 
