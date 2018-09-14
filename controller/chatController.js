@@ -22,15 +22,22 @@ let watsonTalk = function (text, context) {
                     text: text
                 }
             }
-            if (context) payload.context = context
+
+            if (context) {
+                if (Object.keys(context).length == 0) {
+                    //TODO: cadastrar novo presenteado
+                } else {
+                    payload.context = context
+                }
+            }
 
             assistant.message(payload, async function (err, response) {
                 if (err) {
                     reject(new Error(err))
                 } else {
                     if (response.context.sexo && !response.context.caracteristicas.sexo) {
-                        if(response.context.sexo == 'masculino') response.context.caracteristicas.sexo = 'M'
-                        if(response.context.sexo == 'feminino') response.context.caracteristicas.sexo = 'F'
+                        if (response.context.sexo == 'masculino') response.context.caracteristicas.sexo = 'M'
+                        if (response.context.sexo == 'feminino') response.context.caracteristicas.sexo = 'F'
                     }
 
                     if (response.context.presenteado && !response.context.caracteristicas.presenteado) response.context.caracteristicas.presenteado = response.context.presenteado

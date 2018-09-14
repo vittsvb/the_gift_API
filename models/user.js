@@ -4,8 +4,6 @@ var userSchema = new mongoose.Schema({
     name: String,
     email: String,
     password: String,
-    likes: [String],
-    deslikes: [String],
     givenPersons: [String]
 })
 

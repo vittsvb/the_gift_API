@@ -1,7 +1,7 @@
 var User = require('../models/user')
 var GivenPerson = require('../models/givenPerson')
 
-let registerGivenPerson = function (type, age, profession, sex, hobbie, presentValue, occasion,likes,dislikes) {
+let registerGivenPerson = function (type, age, profession, sex, hobbie, presentValue, occasion, likes, dislikes) {
     return new Promise(async function (resolve, reject) {
         try {
             //Cria o novo presenteado
@@ -14,11 +14,11 @@ let registerGivenPerson = function (type, age, profession, sex, hobbie, presentV
                 presentValue: presentValue,
                 occasion: occasion,
                 likes: likes,
-                dislikes:dislikes
+                dislikes: dislikes
             })
 
             return resolve(newGivenPerson.save())
-            
+
         } catch (err) {
             return reject('Erro ao registrar presenteado: ' + err)
         }
@@ -29,7 +29,7 @@ let registerGivenPerson = function (type, age, profession, sex, hobbie, presentV
 let deleteGivenPerson = function (givenPersonId) {
     return new Promise(async function (resolve, reject) {
         try {
-            let givenPerson = GivenPerson.findByIdAndDelete(givenPersonId)            
+            let givenPerson = GivenPerson.findByIdAndDelete(givenPersonId)
             return resolve(givenPerson)
         } catch (err) {
             return reject('Erro ao deletar presenteado: ' + err)
@@ -78,7 +78,7 @@ let removeLike = function (id, prodid) {
         }
     })
 }
-let addDeslike = function (id, prodid) {
+let addDislike = function (id, prodid) {
     return new Promise(async function (resolve, reject) {
         try {
             let givenPerson = await GivenPerson.findByIdAndUpdate(id, {
@@ -99,7 +99,7 @@ let addDeslike = function (id, prodid) {
         }
     })
 }
-let removeDeslike = function (id, prodid) {
+let removeDislike = function (id, prodid) {
     return new Promise(async function (resolve, reject) {
         try {
             let givenPerson = await GivenPerson.findByIdAndUpdate(id, {
@@ -127,8 +127,8 @@ let removeDeslike = function (id, prodid) {
 module.exports = {
     registerGivenPerson: registerGivenPerson,
     deleteGivenPerson: deleteGivenPerson,
-    addLike:addLike,
-    removeLike:removeLike,
-    addDeslike:addDeslike,
-    removeDeslike:removeDeslike
+    addLike: addLike,
+    removeLike: removeLike,
+    addDislike: addDislike,
+    removeDislike: removeDislike
 }
