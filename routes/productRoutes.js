@@ -15,8 +15,6 @@ router.post('/register', (async (req, res, next) => {
             message: err
         })
     }
-
-
 }))
 
 module.exports = router

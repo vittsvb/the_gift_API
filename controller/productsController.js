@@ -3,7 +3,8 @@ var Product = require('../models/product')
 let recommendProduct = function (caracteristicas) {
     return new Promise(async function (resolve, reject) {
         try {
-            let query = {}            
+            let query = {}
+            if (caracteristicas.sexo) query.sexo = caracteristicas.sexo
             if (caracteristicas.presenteado) query.presenteado = caracteristicas.presenteado
             if (caracteristicas.idade) {
                 query['idade.max'] = {
@@ -24,11 +25,14 @@ let recommendProduct = function (caracteristicas) {
             } else if (caracteristicas.hobbie) {
                 query.profissao_hobbie = caracteristicas.hobbie
             }
-            if(caracteristicas.valor) query.valor = caracteristicas.valor
-            if(caracteristicas.valor) query.ocasiao = caracteristicas.ocasiao
+            if (caracteristicas.valor) {
+                query.valor = {
+                    $lte: parseInt(caracteristicas.valor)
+                }
+            }
+            if (caracteristicas.ocasiao) query.ocasiao = caracteristicas.ocasiao
 
             console.log(query)
-            //TODO: Fazer condição para o "GENERO"
 
             let products = await Product.find(query, {
                 presenteado: 0,
@@ -48,9 +52,8 @@ let recommendProduct = function (caracteristicas) {
 let addProduct = function (products) {
     return new Promise(async function (resolve, reject) {
         try {
-             //Cria o novo presenteado
-
-            let newProducts= await Product.insertMany(products)
+            //Cria o novo presenteado
+            let newProducts = await Product.insertMany(products)
 
             return resolve(products)
         } catch (err) {
