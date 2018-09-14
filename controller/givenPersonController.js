@@ -1,7 +1,7 @@
 var User = require('../models/user')
 var GivenPerson = require('../models/givenPerson')
 
-let registerGivenPerson = function (userid, type, age, profession, sex, hobbie, presentValue, occasion) {
+let registerGivenPerson = function (type, age, profession, sex, hobbie, presentValue, occasion,likes,dislikes) {
     return new Promise(async function (resolve, reject) {
         try {
             //Cria o novo presenteado
@@ -12,25 +12,13 @@ let registerGivenPerson = function (userid, type, age, profession, sex, hobbie, 
                 sex: sex,
                 hobbie: hobbie,
                 presentValue: presentValue,
-                occasion: occasion
+                occasion: occasion,
+                likes: likes,
+                dislikes:dislikes
             })
 
-            newGivenPerson = await newGivenPerson.save()
-
-            let updatedUser = User.findByIdAndUpdate(userid, {
-                $push: {
-                    givenPersons: newGivenPerson._id
-                }
-            }, {
-                new: true,
-                fields: {
-                    password: 0,
-                    __v: 0
-                }
-            })
-
-            return resolve(updatedUser)
-
+            return resolve(newGivenPerson.save())
+            
         } catch (err) {
             return reject('Erro ao registrar presenteado: ' + err)
         }
@@ -48,30 +36,99 @@ let deleteGivenPerson = function (givenPersonId) {
         }
     })
 }
-
-let findallGivenPersonByUser = function (userid) {
+let addLike = function (id, prodid) {
     return new Promise(async function (resolve, reject) {
         try {
-
-            let newUser = await User.findById(userid)
-            let givenPersons = await GivenPerson.find({
-                _id: {
-                    $in: newUser.givenPersons
+            let givenPerson = await GivenPerson.findByIdAndUpdate(id, {
+                $addToSet: {
+                    likes: prodid
+                }
+            }, {
+                new: true,
+                fields: {
+                    password: 0,
+                    __v: 0
                 }
             })
-            
-            return resolve(givenPersons)
 
+            return resolve(givenPerson)
         } catch (err) {
-            return reject('Erro ao selecionar presenteados: ' + err)
+            reject('Erro ao adicionar Favorito: ' + err)
+        }
+    })
+}
+let removeLike = function (id, prodid) {
+    return new Promise(async function (resolve, reject) {
+        try {
+            let givenPerson = await GivenPerson.findByIdAndUpdate(id, {
+                $pull: {
+                    likes: prodid
+                }
+            }, {
+                new: true,
+                fields: {
+                    password: 0,
+                    __v: 0
+                }
+            })
+
+            return resolve(givenPerson)
+        } catch (err) {
+            reject('Erro ao adicionar Favorito: ' + err)
+        }
+    })
+}
+let addDeslike = function (id, prodid) {
+    return new Promise(async function (resolve, reject) {
+        try {
+            let givenPerson = await GivenPerson.findByIdAndUpdate(id, {
+                $addToSet: {
+                    dislikes: prodid
+                }
+            }, {
+                new: true,
+                fields: {
+                    password: 0,
+                    __v: 0
+                }
+            })
+
+            return resolve(givenPerson)
+        } catch (err) {
+            reject('Erro ao adicionar Favorito: ' + err)
+        }
+    })
+}
+let removeDeslike = function (id, prodid) {
+    return new Promise(async function (resolve, reject) {
+        try {
+            let givenPerson = await GivenPerson.findByIdAndUpdate(id, {
+                $pull: {
+                    dislikes: prodid
+                }
+            }, {
+                new: true,
+                fields: {
+                    password: 0,
+                    __v: 0
+                }
+            })
+
+            return resolve(givenPerson)
+        } catch (err) {
+            reject('Erro ao adicionar Favorito: ' + err)
         }
     })
 }
 
 
 
+
 module.exports = {
     registerGivenPerson: registerGivenPerson,
     deleteGivenPerson: deleteGivenPerson,
-    findallGivenPersonByUser: findallGivenPersonByUser
+    addLike:addLike,
+    removeLike:removeLike,
+    addDeslike:addDeslike,
+    removeDeslike:removeDeslike
 }
