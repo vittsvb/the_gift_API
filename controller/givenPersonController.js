@@ -36,17 +36,17 @@ let deleteGivenPerson = function (givenPersonId) {
         }
     })
 }
-let addLike = function (id, prodid) {
+
+let addLike = function (givenPersonId, prodid) {
     return new Promise(async function (resolve, reject) {
         try {
-            let givenPerson = await GivenPerson.findByIdAndUpdate(id, {
+            let givenPerson = await GivenPerson.findByIdAndUpdate(givenPersonId, {
                 $addToSet: {
                     likes: prodid
                 }
             }, {
                 new: true,
                 fields: {
-                    password: 0,
                     __v: 0
                 }
             })
@@ -57,71 +57,69 @@ let addLike = function (id, prodid) {
         }
     })
 }
-let removeLike = function (id, prodid) {
+
+let removeLike = function (givenPersonId, prodid) {
     return new Promise(async function (resolve, reject) {
         try {
-            let givenPerson = await GivenPerson.findByIdAndUpdate(id, {
+            let givenPerson = await GivenPerson.findByIdAndUpdate(givenPersonId, {
                 $pull: {
                     likes: prodid
                 }
             }, {
                 new: true,
                 fields: {
-                    password: 0,
                     __v: 0
                 }
             })
 
             return resolve(givenPerson)
         } catch (err) {
-            reject('Erro ao adicionar Favorito: ' + err)
+            reject('Erro ao remover Favorito: ' + err)
         }
     })
 }
-let addDislike = function (id, prodid) {
+
+let addDislike = function (givenPersonId, prodid) {
     return new Promise(async function (resolve, reject) {
         try {
-            let givenPerson = await GivenPerson.findByIdAndUpdate(id, {
+            let givenPerson = await GivenPerson.findByIdAndUpdate(givenPersonId, {
                 $addToSet: {
                     dislikes: prodid
                 }
             }, {
                 new: true,
                 fields: {
-                    password: 0,
                     __v: 0
                 }
             })
 
             return resolve(givenPerson)
         } catch (err) {
-            reject('Erro ao adicionar Favorito: ' + err)
+            reject('Erro ao adicionar Rejeitado: ' + err)
         }
     })
 }
-let removeDislike = function (id, prodid) {
+
+let removeDislike = function (givenPersonId, prodid) {
     return new Promise(async function (resolve, reject) {
         try {
-            let givenPerson = await GivenPerson.findByIdAndUpdate(id, {
+            let givenPerson = await GivenPerson.findByIdAndUpdate(givenPersonId, {
                 $pull: {
                     dislikes: prodid
                 }
             }, {
                 new: true,
                 fields: {
-                    password: 0,
                     __v: 0
                 }
             })
 
             return resolve(givenPerson)
         } catch (err) {
-            reject('Erro ao adicionar Favorito: ' + err)
+            reject('Erro ao remover Rejeitado: ' + err)
         }
     })
 }
-
-
 
 
 module.exports = {

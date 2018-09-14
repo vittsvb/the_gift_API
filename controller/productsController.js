@@ -41,6 +41,8 @@ let recommendProduct = function (caracteristicas) {
                 profis_hobbie: 0,
                 ocasiao: 0
             })
+            
+            products.sort(function() { return 0.5 - Math.random() });
 
             return resolve(products)
         } catch (err) {

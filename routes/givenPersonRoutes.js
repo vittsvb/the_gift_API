@@ -37,7 +37,7 @@ router.post('/delete', (async (req, res, next) => {
 router.post('/addLike', (async (req, res, next) => {
     try {
 
-        let result = await controller.addLike(req.body._id, req.body.prodid)
+        let result = await controller.addLike(req.body.givenPersonId, req.body.prodid)
 
         res.json({
             message: 'Like cadastrado com sucesso',
@@ -52,7 +52,7 @@ router.post('/addLike', (async (req, res, next) => {
 }))
 router.post('/removeLike', (async (req, res, next) => {
     try {
-        let result = await controller.removeLike(req.body._id, req.body.prodid)
+        let result = await controller.removeLike(req.body.givenPersonId, req.body.prodid)
 
         res.json({
             message: 'Like deletado com sucesso',
@@ -67,7 +67,7 @@ router.post('/removeLike', (async (req, res, next) => {
 }))
 router.post('/addDislike', (async (req, res, next) => {
     try {
-        let result = await controller.adddislike(req.body._id, req.body.prodid)
+        let result = await controller.adddislike(req.body.givenPersonId, req.body.prodid)
 
         res.json({
             message: 'Dislike cadastrado com sucesso',
@@ -82,7 +82,7 @@ router.post('/addDislike', (async (req, res, next) => {
 }))
 router.post('/removeDislike', (async (req, res, next) => {
     try {
-        let result = await controller.removedislike(req.body._id, req.body.prodid)
+        let result = await controller.removedislike(req.body.givenPersonId, req.body.prodid)
 
         res.json({
             message: 'Dislike deletado com sucesso',

@@ -8,9 +8,10 @@ var assistant = new AssistantV1({
 })
 
 const productsController = require('./productsController')
+const givenPersonController = require('./givenPersonController')
 
 let watsonTalk = function (text, context) {
-    return new Promise(function (resolve, reject) {
+    return new Promise(async function (resolve, reject) {
         try {
             var payload = {
                 workspace_id: process.env.WATSON_WORKSPACE,
@@ -25,7 +26,8 @@ let watsonTalk = function (text, context) {
 
             if (context) {
                 if (Object.keys(context).length == 0) {
-                    //TODO: cadastrar novo presenteado
+                    let result = await givenPersonController.registerGivenPerson()
+                    payload.context.givenPersonId = result._id
                 } else {
                     payload.context = context
                 }
@@ -52,7 +54,7 @@ let watsonTalk = function (text, context) {
 
                     if (response.context.ocasiao && !response.context.caracteristicas.ocasiao) response.context.caracteristicas.ocasiao = response.context.ocasiao
 
-                    if (Object.keys(response.context.caracteristicas).length >= 1) {
+                    if (Object.keys(response.context.caracteristicas).length > 0) {
                         let products = await productsController.recommendProduct(response.context.caracteristicas)
                         response.products = products
                     }
