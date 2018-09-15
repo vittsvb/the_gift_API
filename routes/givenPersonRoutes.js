@@ -67,7 +67,7 @@ router.post('/removeLike', (async (req, res, next) => {
 }))
 router.post('/addDislike', (async (req, res, next) => {
     try {
-        let result = await controller.adddislike(req.body.givenPersonId, req.body.prodid)
+        let result = await controller.addDislike(req.body.givenPersonId, req.body.prodid)
 
         res.json({
             message: 'Dislike cadastrado com sucesso',
@@ -95,5 +95,19 @@ router.post('/removeDislike', (async (req, res, next) => {
         })
     }
 }))
-
+router.post('/getgivenpersonbyid',(async (req,res,next) => {
+    try{
+        let result = await controller.getGivenPersonById(req.body.givenPersonId)
+        
+        res.json({
+            message:"Given Person retornados com sucesso",
+            data:result
+        })
+    }
+    catch(err){
+        return next({
+            message:err
+        })
+    }
+}))
 module.exports = router

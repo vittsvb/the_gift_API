@@ -8,8 +8,8 @@ var givenPersonSchema = new mongoose.Schema({
     hobbie: String,
     presentValue: Number,
     occasion: String,
-    likes: [{type: mongoose.Schema.Types.ObjectId, ref: 'ramoAtividade'}],
-    dislikes: [{type: mongoose.Schema.Types.ObjectId, ref: 'ramoAtividade'}]
+    likes: [{type: mongoose.Schema.Types.ObjectId, ref: process.env.PRODUCT_SCHEMA}],
+    dislikes: [{type: mongoose.Schema.Types.ObjectId, ref: process.env.PRODUCT_SCHEMA}]
 })
 
 module.exports = mongoose.model(process.env.GIVENPERSON_SCHEMA, givenPersonSchema, process.env.GIVENPERSON_SCHEMA)
