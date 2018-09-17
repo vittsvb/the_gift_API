@@ -5,7 +5,7 @@ let router = require('express').Router()
 router.post('/addDislike', (async (req, res, next) => {
 
     try {
-        let result = await controller.addDislike(req.body.userid, req.body.prodid)
+        let result = await controller.addDislike(req.body.givenPersonId, req.body.prodid)
         res.json({
             message: 'Rejeitado cadastrado com sucesso',
             data: result
@@ -23,7 +23,7 @@ router.post('/addDislike', (async (req, res, next) => {
 router.post('/removeDislike', (async (req, res, next) => {
 
     try {
-        let result = await controller.removeDislike(req.body.userid, req.body.prodid)
+        let result = await controller.removeDislike(req.body.givenPersonId, req.body.prodid)
         res.json({
             message: 'Rejeitado removido com sucesso',
             data: result
@@ -41,7 +41,7 @@ router.post('/removeDislike', (async (req, res, next) => {
 router.post('/findall', (async (req, res, next) => {
 
     try {
-        let result = await controller.findAllDislikesByUser(req.body.userid)
+        let result = await controller.findAllDislikesByUser(req.body.givenPersonId)
         res.json({
             message: 'Rejeitado listado com sucesso',
             data: result

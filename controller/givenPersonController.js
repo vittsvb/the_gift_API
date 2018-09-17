@@ -1,7 +1,7 @@
 var User = require('../models/user')
 var GivenPerson = require('../models/givenPerson')
 
-let registerGivenPerson = function (type, age, profession, sex, hobbie, presentValue, occasion, likes, dislikes) {
+let registerGivenPerson = function (userId, type, age, profession, sex, hobbie, presentValue, occasion, likes, dislikes) {
     return new Promise(async function (resolve, reject) {
         try {
             //Cria o novo presenteado
@@ -17,7 +17,17 @@ let registerGivenPerson = function (type, age, profession, sex, hobbie, presentV
                 dislikes: dislikes
             })
 
-            return resolve(newGivenPerson.save())
+            newGivenPerson = await newGivenPerson.save()
+
+            let updatedUser = await User.findByIdAndUpdate(userId, {
+                $push: {
+                    givenPersons: newGivenPerson._id
+                }
+            }, {
+                new: true
+            })
+
+            return resolve(newGivenPerson)
 
         } catch (err) {
             return reject('Erro ao registrar presenteado: ' + err)

@@ -14,7 +14,8 @@ let registerUser = function (name, email, password) {
             var newUser = new User({
                 name: name,
                 email: email,
-                password: createHash(password)
+                password: createHash(password),
+                givenPersons: []
             })
             return resolve(newUser.save())
 

@@ -1,42 +1,40 @@
-var User = require('../models/user')
+var GivenPerson = require('../models/givenPerson')
 
-let addDislike = function (userid, prodid) {
+let addDislike = function (givenPersonId, prodid) {
     return new Promise(async function (resolve, reject) {
         try {
-            let newUser = User.findOneAndUpdate({
-                _id: userid
+            let updatedGivenPerson = await GivenPerson.findOneAndUpdate({
+                _id: givenPersonId
             }, {
                 $addToSet: {
-                    deslikes: prodid
+                    dislikes: prodid
                 }
             }, {
                 new: true,
                 fields: {
-                    password: 0,
                     __v: 0
                 }
             })
-            
-            return resolve(newUser)
+
+            return resolve(updatedGivenPerson)
         } catch (err) {
             reject('Erro ao adicionar rejeitado: ' + err)
         }
     })
 }
 
-let removeDislike = function (userid, prodid) {
+let removeDislike = function (givenPersonId, prodid) {
     return new Promise(async function (resolve, reject) {
         try {
-            resolve(User.findOneAndUpdate({
-                _id: userid
+            resolve(GivenPerson.findOneAndUpdate({
+                _id: givenPersonId
             }, {
                 $pull: {
-                    deslikes: prodid
+                    dislikes: prodid
                 }
             }, {
                 new: true,
                 fields: {
-                    password: 0,
                     __v: 0
                 }
             }))
@@ -46,11 +44,11 @@ let removeDislike = function (userid, prodid) {
     })
 }
 
-let findAllDislikesByUser = function (userid) {
+let findAllDislikesByUser = function (givenPersonId) {
     return new Promise(async function (resolve, reject) {
         try {
-            let newUser = await User.findById(userid)
-            resolve(newUser.deslikes)
+            let givenPerson = await GivenPerson.findById(givenPersonId)
+            resolve(givenPerson.deslikes)
         } catch (err) {
             reject('Erro ao buscar não Favorito: ' + err)
         }

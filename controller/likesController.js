@@ -1,32 +1,31 @@
-var User = require('../models/user')
+var GivenPerson = require('../models/givenPerson')
 
-let addLike = function (userid, prodid) {
+let addLike = function (givenPersonId, prodid) {
     return new Promise(async function (resolve, reject) {
         try {
-            let updatedUser = await User.findByIdAndUpdate(userid, {
+            let updatedGivenPerson = await GivenPerson.findByIdAndUpdate(givenPersonId, {
                 $addToSet: {
                     likes: prodid
                 }
             }, {
                 new: true,
                 fields: {
-                    password: 0,
                     __v: 0
                 }
             })
 
-            return resolve(updatedUser)
+            return resolve(updatedGivenPerson)
         } catch (err) {
             reject('Erro ao adicionar Favorito: ' + err)
         }
     })
 }
 
-let removeLike = function (userid, prodId) {
+let removeLike = function (givenPersonId, prodId) {
     return new Promise(async function (resolve, reject) {
         try {
-            resolve(User.findOneAndUpdate({
-                _id: userid
+            let updatedGivenPerson = await GivenPerson.findOneAndUpdate({
+                _id: givenPersonId
             }, {
                 $pull: {
                     likes: prodId
@@ -34,21 +33,22 @@ let removeLike = function (userid, prodId) {
             }, {
                 new: true,
                 fields: {
-                    password: 0,
                     __v: 0
                 }
-            }))
+            })
+            
+            resolve(updatedGivenPerson)
         } catch (err) {
             reject('Erro ao remover Favorito: ' + err)
         }
     })
 }
 
-let findAllLikesbyUser = function (userid) {
+let findAllLikesbyGivenPerson = function (givenPersonId) {
     return new Promise(async function (resolve, reject) {
         try {
-            let user = await User.findById(userid)
-            resolve(user.likes)
+            let givenPerson = await GivenPerson.findById(givenPersonId)
+            resolve(givenPerson.likes)
         } catch (err) {
             reject('Erro ao buscar Favoritos: ' + err)
         }
@@ -59,5 +59,5 @@ let findAllLikesbyUser = function (userid) {
 module.exports = {
     addLike: addLike,
     removeLike: removeLike,
-    findAllLikesbyUser: findAllLikesbyUser
+    findAllLikesbyGivenPerson: findAllLikesbyGivenPerson
 }

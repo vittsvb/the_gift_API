@@ -10,7 +10,7 @@ var assistant = new AssistantV1({
 const productsController = require('./productsController')
 const givenPersonController = require('./givenPersonController')
 
-let watsonTalk = function (text, context) {
+let watsonTalk = function (text, context, userId) {
     return new Promise(async function (resolve, reject) {
         try {
             var payload = {
@@ -26,7 +26,7 @@ let watsonTalk = function (text, context) {
 
             if (context) {
                 if (Object.keys(context).length == 0) {
-                    let result = await givenPersonController.registerGivenPerson()
+                    let result = await givenPersonController.registerGivenPerson(userId)
                     payload.context.givenPersonId = result._id
                 } else {
                     payload.context = context
@@ -55,6 +55,8 @@ let watsonTalk = function (text, context) {
                     if (response.context.ocasiao && !response.context.caracteristicas.ocasiao) response.context.caracteristicas.ocasiao = response.context.ocasiao
 
                     if (Object.keys(response.context.caracteristicas).length > 0) {
+                        //let result = await givenPersonController.registerGivenPerson(userId)
+                        //TODO: update given
                         let products = await productsController.recommendProduct(response.context.caracteristicas)
                         response.products = products
                     }

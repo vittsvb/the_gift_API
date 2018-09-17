@@ -4,7 +4,7 @@ let router = require('express').Router()
 
 router.post('/register', (async (req, res, next) => {
     try {
-        let result = await controller.registerGivenPerson(req.body.type, req.body.age, req.body.profession, req.body.sex, req.body.hobbie, req.body.presentValue, req.body.occasion, req.body.likes, req.body.dislikes)
+        let result = await controller.registerGivenPerson(req.body.userid, req.body.type, req.body.age, req.body.profession, req.body.sex, req.body.hobbie, req.body.presentValue, req.body.occasion, req.body.likes, req.body.dislikes)
 
         res.json({
             message: 'Presenteado cadastrado com sucesso',

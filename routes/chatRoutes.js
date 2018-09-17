@@ -3,7 +3,7 @@ let router = require('express').Router()
 
 router.post('/talk', async (req, res, next) => {
     try {
-        let result = await controller.watsonTalk(req.body.text, req.body.context)
+        let result = await controller.watsonTalk(req.body.text, req.body.context, req.body.userid)
         res.json({
             message: 'Resposta do Watson recebida com sucesso',
             data: result
