@@ -19,8 +19,8 @@
         "mongoose": "^5.1.7",
         "morgan": "^1.9.0",
         "watson-developer-cloud": "^3.5.3"
-    }
+    },
     "engines": {
-        "node": "8.9.4"
+        "node": "8.*"
     }
 }
