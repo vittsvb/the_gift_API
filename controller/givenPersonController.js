@@ -45,11 +45,11 @@ let addLike = function (givenPersonId, prodid) {
                     likes: prodid
                 }
             }, {
-                    new: true,
-                    fields: {
-                        __v: 0
-                    }
-                })
+                new: true,
+                fields: {
+                    __v: 0
+                }
+            })
 
             return resolve(givenPerson)
         } catch (err) {
@@ -66,11 +66,11 @@ let removeLike = function (givenPersonId, prodid) {
                     likes: prodid
                 }
             }, {
-                    new: true,
-                    fields: {
-                        __v: 0
-                    }
-                })
+                new: true,
+                fields: {
+                    __v: 0
+                }
+            })
 
             return resolve(givenPerson)
         } catch (err) {
@@ -87,11 +87,11 @@ let addDislike = function (givenPersonId, prodid) {
                     dislikes: prodid
                 }
             }, {
-                    new: true,
-                    fields: {
-                        __v: 0
-                    }
-                })
+                new: true,
+                fields: {
+                    __v: 0
+                }
+            })
 
             return resolve(givenPerson)
         } catch (err) {
@@ -108,11 +108,11 @@ let removeDislike = function (givenPersonId, prodid) {
                     dislikes: prodid
                 }
             }, {
-                    new: true,
-                    fields: {
-                        __v: 0
-                    }
-                })
+                new: true,
+                fields: {
+                    __v: 0
+                }
+            })
 
             return resolve(givenPerson)
         } catch (err) {
@@ -121,16 +121,16 @@ let removeDislike = function (givenPersonId, prodid) {
     })
 }
 
-let getGivenPersonById = async function(givenPersonId){
-    return new Promise(async function(resolve,reject){
-        try{
-            let givenPerson = await GivenPerson.findById(givenPersonId).populate('likes',{
+let getGivenPersonById = async function (givenPersonId) {
+    return new Promise(async function (resolve, reject) {
+        try {
+            let givenPerson = await GivenPerson.findById(givenPersonId).populate('likes', {
                 presenteado: 0,
                 idade: 0,
                 sexo: 0,
                 profis_hobbie: 0,
                 ocasiao: 0
-            }).populate('dislikes',{
+            }).populate('dislikes', {
                 presenteado: 0,
                 idade: 0,
                 sexo: 0,
@@ -138,12 +138,12 @@ let getGivenPersonById = async function(givenPersonId){
                 ocasiao: 0
             })
             return resolve(givenPerson)
-        }
-        catch(err){
+        } catch (err) {
             reject('Erro ao buscar Likes: ' + err)
         }
     })
 }
+
 module.exports = {
     registerGivenPerson: registerGivenPerson,
     deleteGivenPerson: deleteGivenPerson,
@@ -151,5 +151,5 @@ module.exports = {
     removeLike: removeLike,
     addDislike: addDislike,
     removeDislike: removeDislike,
-    getGivenPersonById:getGivenPersonById
+    getGivenPersonById: getGivenPersonById
 }
