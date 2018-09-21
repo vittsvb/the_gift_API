@@ -82,7 +82,7 @@ router.post('/addDislike', (async (req, res, next) => {
 }))
 router.post('/removeDislike', (async (req, res, next) => {
     try {
-        let result = await controller.removedislike(req.body.givenPersonId, req.body.prodid)
+        let result = await controller.removeDislike(req.body.givenPersonId, req.body.prodid)
 
         res.json({
             message: 'Dislike deletado com sucesso',
@@ -95,7 +95,7 @@ router.post('/removeDislike', (async (req, res, next) => {
         })
     }
 }))
-router.post('/getgivenpersonbyid',(async (req,res,next) => {
+router.post('/getGivenPersonById',(async (req,res,next) => {
     try{
         let result = await controller.getGivenPersonById(req.body.givenPersonId)
         

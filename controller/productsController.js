@@ -3,6 +3,7 @@ var Product = require('../models/product')
 let recommendProduct = function (caracteristicas) {
     return new Promise(async function (resolve, reject) {
         try {
+            //TODO: Resolver problema com "Vó" e "Vô"
             let query = {}
             if (caracteristicas.sexo) query.sexo = caracteristicas.sexo
             if (caracteristicas.presenteado) query.presenteado = caracteristicas.presenteado
