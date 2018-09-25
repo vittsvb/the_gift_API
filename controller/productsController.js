@@ -33,8 +33,6 @@ let recommendProduct = function (caracteristicas) {
             }
             if (caracteristicas.ocasiao) query.ocasiao = caracteristicas.ocasiao
 
-            console.log(query)
-
             let products = await Product.find(query, {
                 presenteado: 0,
                 idade: 0,

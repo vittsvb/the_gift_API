@@ -56,7 +56,18 @@ let watsonTalk = function (text, context) {
 
                     if (Object.keys(response.context.caracteristicas).length > 0) {
                         let products = await productsController.recommendProduct(response.context.caracteristicas)
+                        let givenPerson = await givenPersonController.getGivenPersonById(response.context.givenPersonId)
+
+                        products = products.filter(x => {
+                            return !givenPerson.likes.some(y => y.nome === x.nome)
+                        })
+                        products = products.filter(x => {
+                            return !givenPerson.dislikes.some(y => y.nome === x.nome)
+                        })
+
                         response.products = products
+                        //let index = response.output.text.length-1
+                        //response.output.text.splice(index, 0, "Não esqueça de dar uma olhada na aba 'presentes', para ver algumas sugestões...")
                     }
 
                     resolve(response)
