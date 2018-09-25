@@ -95,18 +95,17 @@ router.post('/removeDislike', (async (req, res, next) => {
         })
     }
 }))
-router.post('/getGivenPersonById',(async (req,res,next) => {
-    try{
+router.post('/getGivenPersonById', (async (req, res, next) => {
+    try {
         let result = await controller.getGivenPersonById(req.body.givenPersonId)
-        
+
         res.json({
-            message:"Given Person retornados com sucesso",
-            data:result
+            message: "Given Person retornados com sucesso",
+            data: result
         })
-    }
-    catch(err){
+    } catch (err) {
         return next({
-            message:err
+            message: err
         })
     }
 }))
