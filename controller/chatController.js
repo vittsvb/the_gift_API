@@ -54,7 +54,7 @@ let watsonTalk = function (text, context) {
 
                     if (response.context.ocasiao && !response.context.caracteristicas.ocasiao) response.context.caracteristicas.ocasiao = response.context.ocasiao
 
-                    if (Object.keys(response.context.caracteristicas).length > 0) {
+                    if (Object.keys(response.context.caracteristicas).length > 2) {
                         let products = await productsController.recommendProduct(response.context.caracteristicas)
                         let givenPerson = await givenPersonController.getGivenPersonById(response.context.givenPersonId)
 
